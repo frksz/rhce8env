@@ -13,7 +13,8 @@ config.vm.box_check_update = false
 # Repo
 config.vm.define "repo" do |repo|
 
-  repo.vm.box = "rdbreak/rhel8repo"    
+  repo.vm.box = "rdbreak/rhel8repo"
+  repo.vm.box_version = "1.1"    
   repo.vm.provider "virtualbox" do |repo|
     repo.memory = "1024"
     unless File.exist?(file_to_disk5)
@@ -34,6 +35,7 @@ end
 # Node 1
 config.vm.define "node1" do |node1|
   node1.vm.box = "rdbreak/rhel8node"
+  node1.vm.box_version = "1.1"  
 #  node1.vm.hostname = "node1.ansi.example.com"
   node1.vm.network "private_network", ip: "192.168.55.201"
   node1.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: [".git/", "*.vdi"]
@@ -56,6 +58,7 @@ config.vm.define "node1" do |node1|
 # Node 2
 config.vm.define "node2" do |node2|
   node2.vm.box = "rdbreak/rhel8node"
+  node2.vm.box_version = "1.1"  
 #  node2.vm.hostname = "node2.ansi.example.com"
   node2.vm.network "private_network", ip: "192.168.55.202"
   node2.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: [".git/", "*.vdi"]
@@ -78,6 +81,7 @@ end
 # Node 3
 config.vm.define "node3" do |node3|
   node3.vm.box = "rdbreak/rhel8node"
+  node3.vm.box_version = "1.1"
 #  node3.vm.hostname = "node3.ansi.example.com"
   node3.vm.network "private_network", ip: "192.168.55.203"
   node3.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: [".git/", "*.vdi"]
@@ -100,6 +104,7 @@ end
 # Node 4
 config.vm.define "node4" do |node4|
   node4.vm.box = "rdbreak/rhel8node"
+  node4.vm.box_version = "1.1"
 #  node4.vm.hostname = "node4.ansi.example.com"
   node4.vm.network "private_network", ip: "192.168.55.204"
   node4.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: [".git/", "*.vdi"]
